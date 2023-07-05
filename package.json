@@ -1,0 +1,15 @@
+{
+  "name": "nx-repro",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "prettier": "nx exec -- prettier -c ."
+  },
+  "license": "UNLICENSED",
+  "dependencies": {
+    "nx": "^16.4.3",
+    "prettier": "^2.8.8"
+  },
+  "packageManager": "pnpm@8.6.6",
+  "nx": {}
+}
