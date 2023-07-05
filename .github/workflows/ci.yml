@@ -1,0 +1,25 @@
+name: CI
+
+on:
+  pull_request:
+
+jobs:
+  prettier:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    name: "Prettier"
+    timeout-minutes: 10
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: "current"
+
+      - run: corepack enable
+
+      - run: pnpm i
+
+      - run: pnpm prettier
