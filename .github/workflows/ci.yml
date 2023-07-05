@@ -16,10 +16,18 @@ jobs:
 
       - uses: actions/setup-node@v3
         with:
-          node-version: "current"
+          node-version: current
 
-      - run: corepack enable
+      - name: Install dependencies
+        run: |
+          corepack enable
+          pnpm i
 
-      - run: pnpm i
+      - name: Log working directory
+        run: echo $PWD
 
-      - run: pnpm prettier
+      - name: Log Prettier bin directory
+        run: pnpm which prettier
+
+      - name: Run Prettier via nx exec
+        run: pnpm prettier
